@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div align="center"><h1>Welcome to Crossover Online Testing Platform</h1></div>
+
+	<p align="center" th:text="${message != null} ? ${message}:''" />
+    <p align="center" th:text="${exam.description} + '.'" />
+    <p align="center" th:text="'You have ' + ${exam.examDuration} + ' minutes for this test.'" />
+    
+    <p align="center">Enter your credentials: </p>
+    <form method="post" action="/login">
+    <table align="center">
+	    <tr>
+	    	<td><b>Username:</b></td><td><input type="text" name="username"/></td>
+		</tr>
+		<tr>	    	
+	    	<td><b>Password:</b></td><td><input type="password" name="password"/></td>
+	    </tr>
+	    <tr>
+	    	<td colspan="2"><input style="width:100%" type="submit" value="Login" /></td>
+	    </tr>	
+    </table>
+    </form>
+    
+
+    
+</body>
+</html>

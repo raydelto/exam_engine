@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Test End</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div align="center"><h1>Test results</h1></div>
+
+	<p align="center" th:text="${username} +', your grade is ' + ${grade} + ' out of ' + ${exam.totalScore} "/>
+	<p align="center" th:text="'You have ' + ${passed} + ' this test.'"/>
+	<form method="get" action="logout" >
+	<div align="center"><input type="submit" value="Log out"/></div>
+	</form>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Crossover Exam</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
+	$(function() {
+		function hasExpired() {
+			$.ajax({
+				type : "GET",
+				url : "hasExpired",
+				success : function(data) {
+					$('#expired').html(data);
+					if(data == "true"){
+						$(location).attr('href','expired');
+					}
+				}
+			});
+		}
+		;
+		setInterval(hasExpired, 2000);
+	});
+</script>
+</head>
+<body>
+
+	<p align="right" th:text="'User: '+ ${username}" />
+	<p align="center" th:text="${blank != null} ? ${blank}:''" />
+	<p align="center"
+		th:text="'Question '+ ${priority} + ' of ' + ${totalQuestions}" />
+
+	Jump to question:
+	<form action="showexam" method="post">
+		<select name="priority">
+			<option th:each="question, it: ${exam.questions}"
+				th:text="${it.count}" th:value="${it.count}"
+				th:selected="${it.count == priority}" />
+		</select> <input type="submit" value="Go" />
+	</form>
+
+
+	<h1>
+		<p align="center" th:text="${question.title}" />
+	</h1>
+
+	<form method="post" action="saveanswers">
+		<table>
+			<tr th:each="answer : ${question.answers}">
+				<td><input type="radio" name="answer" th:value="${answer.id}"
+					th:checked="${selectedAnswers != null and #lists.contains(selectedAnswers, answer.id)}" /></td>
+				<td th:text="${answer.text}"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" style="width: 100%"
+					value="Save and show next" /></td>
+			</tr>
+		</table>
+	</form>
+
+	<div th:hidden="${question.id != totalQuestions}">
+		<form action="endtest">
+			<input type="submit" value="Finish the test" />
+		</form>
+	</div>
+
+
+</body>
+</html>
