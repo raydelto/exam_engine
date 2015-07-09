@@ -1,0 +1,11 @@
+**Crossover Online Testing Platform by Raydelto Hernandez**
+
+In order to run this code, please follow the steps below:
+
+1- Import the maven Project Object Model (POM) to the IDE of your preference. It has configured all its dependencies including org.springframework.boot which will allow you to run an apache tomcat instance from maven.
+2- Edit the hibernate.cfg.xml file and set a valid username and password for connecting to your MySQL instance.
+3- If the database exams doesn't exists it will create it since we have the the <property name="hbm2ddl.auto">update</property> property on hibernate.cfg.xml.
+4- Execute the maven goal spring-boot:run
+5- Open your browser and go to http://localhost:8080 . It will create your database and tables.
+6- Run the insertion SQL script delivered on the SQL folder
+7- Login user the following username / password : arca / adios .
