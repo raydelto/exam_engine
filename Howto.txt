@@ -1,4 +1,4 @@
-**Crossover Online Testing Platform by Raydelto Hernandez**
+**Online Testing Platform by Raydelto Hernandez**
 
 In order to run this code, please follow the steps below:
 
