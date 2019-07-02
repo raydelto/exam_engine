@@ -7,7 +7,7 @@ public class PasswordUtil {
 	public static String hash(String password){
         String generatedPassword = null;
         try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
+            MessageDigest md = MessageDigest.getInstance("SHA-512");
             md.update(password.getBytes());
             byte[] bytes = md.digest();
             StringBuilder sb = new StringBuilder();
