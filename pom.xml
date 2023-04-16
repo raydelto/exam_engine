@@ -71,7 +71,7 @@
 		<spring.framework.version>3.2.0.RELEASE</spring.framework.version>
 		<hibernate.version>4.1.9.Final</hibernate.version>
 		<junit.version>4.11</junit.version>
-		<hsqldb.version>2.2.9</hsqldb.version>
+		<hsqldb.version>2.7.1</hsqldb.version>
 	</properties>
 
 
